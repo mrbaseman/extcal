@@ -3,10 +3,10 @@
  *
  * @category        page
  * @package         External Calendar
- * @version         1.2.6
+ * @version         1.2.10
  * @authors         Martin Hecht
- * @copyright       (c) 2015 - 2018, Martin Hecht (mrbaseman)
- * @link            https://github.com/WebsiteBaker-modules/extcal
+ * @copyright       (c) 2015 - 2021, Martin Hecht (mrbaseman)
+ * @link            https://github.com/mrbaseman/extcal
  * @license         GNU General Public License
  * @platform        WebsiteBaker 2.8.x
  * @requirements    PHP 5.3 and higher and Curl
@@ -227,6 +227,7 @@ $calendars = preg_replace("/#.*/","",preg_split("/[\s]+/", $cal_urls));
 
 $data = array();
 
+try{
 if($max_entries>=0 && $max_days>=0)
 foreach ($calendars as $ICS){
    if($ICS!=""){
@@ -239,7 +240,10 @@ foreach ($calendars as $ICS){
         && time() - filemtime($cachefile) < $refresh_time ){
         if (copy($cachefile, $filename) === FALSE) break;
     } else {
-        if (preg_match('/\/$/',$ICS)){
+        if (!preg_match('/^http/',$ICS)){
+            if (!preg_match('/^\//',$ICS)) $ICS=WB_PATH.'/'.$ICS;
+            if (copy($ICS, $filename) === FALSE) break;
+        } else if (preg_match('/\/$/',$ICS)){
             if (
                 file_put_contents(
                     $filename,
@@ -483,5 +487,7 @@ foreach($data as $key => $entry){
 echo $section_end;
 
 date_default_timezone_set($SAVED_TZ);
-
+} catch (Exception $e) {
+        echo 'Excetion: ',$e->getMessage();
+}
 ?>
