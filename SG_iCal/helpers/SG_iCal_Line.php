@@ -111,14 +111,16 @@ class SG_iCal_Line implements ArrayAccess, Countable, IteratorAggregate {
         /**
          * @see ArrayAccess.offsetExists
          */
-        public function offsetExists( $param ) {
+        #[\ReturnTypeWillChange]
+        public function offsetExists( $param ):bool {
                 return isset($this->params[ strtolower($param) ]);
         }
 
         /**
          * @see ArrayAccess.offsetGet
          */
-        public function offsetGet( $param ) {
+        #[\ReturnTypeWillChange]
+        public function offsetGet( $param ):mixed {
                 $index = strtolower($param);
                 if (isset($this->params[ $index ])) {
                         return $this->params[ $index ];
@@ -129,7 +131,8 @@ class SG_iCal_Line implements ArrayAccess, Countable, IteratorAggregate {
          * Disabled ArrayAccess requirement
          * @see ArrayAccess.offsetSet
          */
-        public function offsetSet( $param, $val ) {
+        #[\ReturnTypeWillChange]
+        public function offsetSet( $param, $val ):bool {
                 return false;
         }
 
@@ -137,7 +140,8 @@ class SG_iCal_Line implements ArrayAccess, Countable, IteratorAggregate {
          * Disabled ArrayAccess requirement
          * @see ArrayAccess.offsetUnset
          */
-        public function offsetUnset( $param ) {
+        #[\ReturnTypeWillChange]
+        public function offsetUnset( $param ):bool {
                 return false;
         }
 
@@ -152,14 +156,16 @@ class SG_iCal_Line implements ArrayAccess, Countable, IteratorAggregate {
         /**
          * @see Countable.count
          */
-        public function count() {
+        #[\ReturnTypeWillChange]
+        public function count():int {
                 return count($this->params);
         }
 
         /**
          * @see IteratorAggregate.getIterator
          */
-        public function getIterator() {
+        #[\ReturnTypeWillChange]
+        public function getIterator(): Traversable {
                 return new ArrayIterator($this->params);
         }
 }

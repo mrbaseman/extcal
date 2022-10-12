@@ -3,9 +3,9 @@
  *
  * @category        page
  * @package         External Calendar
- * @version         1.2.10
+ * @version         1.2.12
  * @authors         Martin Hecht
- * @copyright       (c) 2015 - 2021, Martin Hecht (mrbaseman)
+ * @copyright       (c) 2015 - 2022, Martin Hecht (mrbaseman)
  * @link            https://github.com/mrbaseman/extcal
  * @license         GNU General Public License
  * @platform        WebsiteBaker 2.8.x
@@ -471,8 +471,7 @@ foreach($data as $key => $entry){
 
 
         foreach($placeholders as $template_key => $template_value)
-            $output_string = preg_replace("/$template_key/",$template_value,$output_string);
-
+            $output_string = preg_replace("/$template_key/",($template_value==null?"":$template_value),$output_string);
 
         // user function hook to postprocess the whole entry
         if(function_exists('extcal_user_postprocess_entry'))

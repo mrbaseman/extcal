@@ -145,6 +145,7 @@ class SG_iCal_Parser {
          * @param string $data
          * @param SG_iCal $ical
          */
+        #[\ReturnTypeWillChange]
         protected static function storeSection( $section, $data, SG_iCal $ical ) {
                 $data = SG_iCal_Factory::Factory($ical, $section, $data);
                 switch( $section ) {

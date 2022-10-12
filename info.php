@@ -3,9 +3,9 @@
  *
  * @category        page
  * @package         External Calendar
- * @version         1.2.10
+ * @version         1.2.12
  * @authors         Martin Hecht
- * @copyright       (c) 2015 - 2021, Martin Hecht (mrbaseman)
+ * @copyright       (c) 2015 - 2022, Martin Hecht (mrbaseman)
  * @link            https://github.com/mrbaseman/extcal
  * @license         GNU General Public License
  * @platform        WebsiteBaker 2.8.x
@@ -27,7 +27,7 @@ if(!defined('WB_PATH')) {
 $module_directory      = 'extcal';
 $module_name           = 'External Calendar';
 $module_function       = 'page';
-$module_version        = '1.2.10';
+$module_version        = '1.2.12';
 $module_platform       = 'WebsiteBaker 2.8.x';
 $module_author         = 'Martin Hecht';
 $module_license        = 'GNU General Public License';
@@ -35,6 +35,9 @@ $module_description    = 'The module External Calendar allows you to include ext
 
 /*
  *      CHANGELOG
+ *      1.2.12  2022-10-11      - merge fixes for 8.1 support
+ *      1.2.11  2022-10-07      - suppressed deprecated in SG_iCal classes with #[\ReturnTypeWillChange] (Bernd)
+ *      1.2.10.1 2022-08-05     - first fixes for php 8.1 support
  *      1.2.10  2021-03-12      - missed to merge in one of Bernds fixes
  *      1.2.9   2021-03-09      - catch exceptions during client call
  *      1.2.8   2021-02-25      - allow to use local files (relative to WB_PATH)
