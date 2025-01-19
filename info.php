@@ -3,9 +3,9 @@
  *
  * @category        page
  * @package         External Calendar
- * @version         1.2.12
+ * @version         1.2.13
  * @authors         Martin Hecht
- * @copyright       (c) 2015 - 2022, Martin Hecht (mrbaseman)
+ * @copyright       (c) 2015 - 2025, Martin Hecht (mrbaseman)
  * @link            https://github.com/mrbaseman/extcal
  * @license         GNU General Public License
  * @platform        WebsiteBaker 2.8.x
@@ -16,9 +16,11 @@
 
 /* -------------------------------------------------------- */
 // Must include code to stop this file being accessed directly
-if(!defined('WB_PATH')) {
+if (!defined('WB_PATH')) {
         // Stop this file being access directly
-        if(!headers_sent()) header("Location: ../index.php",TRUE,301);
+        if (!headers_sent()) {
+                 header("Location: ../index.php", true, 301);
+        }
         die('<head><title>Access denied</title></head><body><h2 style="color:red;margin:3em auto;text-align:center;">Cannot access this file directly</h2></body></html>');
 }
 /* -------------------------------------------------------- */
@@ -27,7 +29,7 @@ if(!defined('WB_PATH')) {
 $module_directory      = 'extcal';
 $module_name           = 'External Calendar';
 $module_function       = 'page';
-$module_version        = '1.2.12';
+$module_version        = '1.2.13';
 $module_platform       = 'WebsiteBaker 2.8.x';
 $module_author         = 'Martin Hecht';
 $module_license        = 'GNU General Public License';
@@ -35,6 +37,7 @@ $module_description    = 'The module External Calendar allows you to include ext
 
 /*
  *      CHANGELOG
+ *      1.2.13  2025-01-19      - trim some values before processing, update default css styling
  *      1.2.12  2022-10-11      - merge fixes for 8.1 support
  *      1.2.11  2022-10-07      - suppressed deprecated in SG_iCal classes with #[\ReturnTypeWillChange] (Bernd)
  *      1.2.10.1 2022-08-05     - first fixes for php 8.1 support

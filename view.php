@@ -3,9 +3,9 @@
  *
  * @category        page
  * @package         External Calendar
- * @version         1.2.12
+ * @version         1.2.13
  * @authors         Martin Hecht
- * @copyright       (c) 2015 - 2022, Martin Hecht (mrbaseman)
+ * @copyright       (c) 2015 - 2025, Martin Hecht (mrbaseman)
  * @link            https://github.com/mrbaseman/extcal
  * @license         GNU General Public License
  * @platform        WebsiteBaker 2.8.x
@@ -16,9 +16,11 @@
 
 /* -------------------------------------------------------- */
 // Must include code to stop this file being accessed directly
-if(!defined('WB_PATH')) {
+if (!defined('WB_PATH')) {
         // Stop this file being access directly
-        if(!headers_sent()) header("Location: ../index.php",TRUE,301);
+        if (!headers_sent()) {
+                 header("Location: ../index.php", true, 301);
+        }
         die('<head><title>Access denied</title></head><body><h2 style="color:red;margin:3em auto;text-align:center;">Cannot access this file directly</h2></body></html>');
 }
 /* -------------------------------------------------------- */
@@ -286,15 +288,15 @@ foreach ($calendars as $ICS){
         $ev_data = $ev->data;
         $curr_Evt = array(
             "id" => ($id+1),
-            "title" => $ev->getProperty('summary'),
+            "title" => trim($ev->getProperty('summary')),
             "calendar" => $calTitle,
             "start" => $ev_start,
             "end"   => $ev->getEnd(),
             "allDay" => (($ev->isWholeDay() && date("H:i",$ev_start)=="00:00" )
                           || (isset($ev_data["x-microsoft-cdo-alldayevent"])
                              && preg_match("/TRUE/i",$ev_data["x-microsoft-cdo-alldayevent"]))),
-            "location" => $ev->getLocation(),
-            "description" => $ev->getDescription(),
+            "location" => trim($ev->getLocation()),
+            "description" => trim($ev->getDescription()),
             "data" => $ev_data
         );
 

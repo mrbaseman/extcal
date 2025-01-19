@@ -2,22 +2,40 @@
 .extcal {
     padding: 0px;
     margin: 0px;
+    width: 100%;
+    margin-bottom: 15px;
 }
+
 .extcal-entry {
-    padding: 0px;
-    margin: 0px;
+  margin: 10px 0px 10px 0px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  clear: both;
+  position: relative;
+  display: inline-block;
+  border-radius: 12px;
+  padding: 20px;
+  background: #f6f5f4;
+  width: 100%;
 }
 .extcal-date {
     padding: 0px;
     margin: 0px;
+    float: left;
+    width: 40%;
 }
 .extcal-title {
+    font-size: larger;
     padding: 0px;
     margin: 0px;
+    float: right;
+    width: 55%;
 }
 .extcal-location {
     padding: 0px;
     margin: 0px;
+    width: 55%;
+    float: right;
 }
 .extcal-description {
     padding: 0px;
@@ -26,4 +44,26 @@
 .extcal-calendar {
     padding: 0px;
     margin: 0px;
+    margin-bottom: 20px;
+}
+.extcal-entry .extcal-details {
+  visibility: hidden;
+  width: 300px;
+  background-color: #fcfcfc;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  box-sizing: border-box;
+  -webkit-box-shadow:inset 0px 0px 0px 2px #ddd;
+  -moz-box-shadow:inset 0px 0px 0px 2px #ddd;
+  box-shadow:inset 0px 0px 0px 2px #ddd;
+  padding: 0px;
+  position: absolute;
+  z-index: 1;
+  bottom: -15px;
+  left: 15%;
+}
+
+.extcal-entry:hover .extcal-details {
+  visibility: visible;
 }

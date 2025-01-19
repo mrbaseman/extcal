@@ -1,6 +1,7 @@
 
 /*
  *      CHANGELOG
+ *      1.2.13  2025-01-19      - trim some values before processing, update default css styling
  *      1.2.12  2022-10-11      - merge fixes for 8.1 support
  *      1.2.11  2022-10-07      - suppressed deprecated in SG_iCal classes with #[\ReturnTypeWillChange] (Bernd)
  *      1.2.10.1 2022-08-05     - first fixes for php 8.1 support
